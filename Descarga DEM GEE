@@ -16,7 +16,7 @@ image: DEM,
 description: 'DEM',
 scale: 30,
 region: area_estudio,
-crs:'EPSG:32719', // zona 17='EPSG:32717', zona 19='EPSG:32719'
+crs:'EPSG:32719', 
 maxPixels: 900000000000
 } );
 
