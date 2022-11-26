@@ -1,0 +1,22 @@
+var DEM = ee.Image("NASA/NASADEM_HGT/001")
+  .clip(area_estudio)
+  .select('elevation')
+
+var DEMVis = {
+  min: 0,
+  max: 2000,
+  palette: ['0000ff', '00ffff', 'ffff00', 'ff0000', 'ffffff']
+}
+
+Map.addLayer(DEM, DEMVis, 'Elevation');
+Map.addLayer(DEM)
+
+Export.image.toDrive({
+image: DEM,
+description: 'DEM',
+scale: 30,
+region: area_estudio,
+crs:'EPSG:32719', // zona 17='EPSG:32717', zona 19='EPSG:32719'
+maxPixels: 900000000000
+} );
+
